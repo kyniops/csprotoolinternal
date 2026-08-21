@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <ProjectGuid>{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}</ProjectGuid>
+    <RootNamespace>CSProTool</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup>
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(Platform)\$(Configuration)\</IntDir>
+    <TargetName>CSProTool</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)generated;$(ProjectDir)vendor\imgui;$(ProjectDir)vendor\imgui\backends;$(ProjectDir)vendor\kiero;$(ProjectDir)vendor\kiero\minhook\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ControlFlowGuard>false</ControlFlowGuard>
+      <AdditionalOptions>/guard:cf- %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>d3d11.lib;dxgi.lib;winmm.lib;winhttp.lib;windowscodecs.lib;ole32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)generated;$(ProjectDir)vendor\imgui;$(ProjectDir)vendor\imgui\backends;$(ProjectDir)vendor\kiero;$(ProjectDir)vendor\kiero\minhook\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ControlFlowGuard>false</ControlFlowGuard>
+      <AdditionalOptions>/guard:cf- %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>d3d11.lib;dxgi.lib;shell32.lib;winmm.lib;winhttp.lib;windowscodecs.lib;ole32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ResourceCompile Include="src\features\hitmarker.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\dllmain.cpp" />
+    <ClCompile Include="src\core\memory.cpp" />
+    <ClCompile Include="src\features\aimbot.cpp" />
+    <ClCompile Include="src\features\esp.cpp" />
+    <ClCompile Include="src\features\bhop.cpp" />
+    <ClCompile Include="src\features\ssg.cpp" />
+    <ClCompile Include="src\features\hitmarker.cpp" />
+    <ClCompile Include="src\features\tracers.cpp" />
+    <ClCompile Include="src\features\bomb.cpp" />
+    <ClCompile Include="src\features\misc.cpp" />
+    <ClCompile Include="src\features\presets.cpp" />
+    <ClCompile Include="src\features\skins.cpp" />
+    <ClCompile Include="src\features\avatars.cpp" />
+    <ClCompile Include="src\features\trigger.cpp" />
+    <ClCompile Include="src\features\ragebot.cpp" />
+    <ClCompile Include="src\hooks\chamsdraw.cpp" />
+    <ClCompile Include="src\hooks\present.cpp" />
+    <ClCompile Include="src\hooks\createmove.cpp" />
+    <ClCompile Include="src\hooks\nospread.cpp" />
+    <ClCompile Include="src\menu\menu.cpp" />
+    <ClCompile Include="vendor\imgui\imgui.cpp" />
+    <ClCompile Include="vendor\imgui\imgui_draw.cpp" />
+    <ClCompile Include="vendor\imgui\imgui_tables.cpp" />
+    <ClCompile Include="vendor\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="vendor\imgui\backends\imgui_impl_dx11.cpp" />
+    <ClCompile Include="vendor\imgui\backends\imgui_impl_win32.cpp" />
+    <ClCompile Include="vendor\kiero\kiero.cpp" />
+    <ClCompile Include="vendor\kiero\minhook\src\buffer.c" />
+    <ClCompile Include="vendor\kiero\minhook\src\hook.c" />
+    <ClCompile Include="vendor\kiero\minhook\src\trampoline.c" />
+    <ClCompile Include="vendor\kiero\minhook\src\hde\hde64.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\common.hpp" />
+    <ClInclude Include="src\core\memory.hpp" />
+    <ClInclude Include="src\core\modules.hpp" />
+    <ClInclude Include="src\core\status.hpp" />
+    <ClInclude Include="src\features\aimbot.hpp" />
+    <ClInclude Include="src\features\config.hpp" />
+    <ClInclude Include="src\features\presets.hpp" />
+    <ClInclude Include="src\features\bhop.hpp" />
+    <ClInclude Include="src\features\ssg.hpp" />
+    <ClInclude Include="src\features\hitmarker.hpp" />
+    <ClInclude Include="src\features\tracers.hpp" />
+    <ClInclude Include="src\features\bomb.hpp" />
+    <ClInclude Include="src\features\misc.hpp" />
+    <ClInclude Include="generated\buttons.hpp" />
+    <ClInclude Include="src\hooks\chamsdraw.hpp" />
+    <ClInclude Include="src\hooks\present.hpp" />
+    <ClInclude Include="src\hooks\createmove.hpp" />
+    <ClInclude Include="src\hooks\nospread.hpp" />
+    <ClInclude Include="src\features\silent.hpp" />
+    <ClInclude Include="src\features\skins.hpp" />
+    <ClInclude Include="src\features\avatars.hpp" />
+    <ClInclude Include="src\features\trigger.hpp" />
+    <ClInclude Include="src\sdk\weapons.hpp" />
+    <ClInclude Include="src\core\pattern.hpp" />
+    <ClInclude Include="src\menu\menu.hpp" />
+    <ClInclude Include="src\sdk\entity.hpp" />
+    <ClInclude Include="src\sdk\math.hpp" />
+    <ClInclude Include="generated\offsets.hpp" />
+    <ClInclude Include="generated\client_dll.hpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>
+

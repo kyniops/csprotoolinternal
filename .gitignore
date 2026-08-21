@@ -1,0 +1,51 @@
+## Build
+**/bin/
+**/obj/
+**/.vs/
+**/*.user
+**/*.suo
+**/*.sdf
+**/*.opensdf
+**/x64/
+**/Debug/
+**/Release/
+
+## Binaires (sources only sur GitHub)
+*.dll
+*.exe
+*.lib
+*.exp
+*.pdb
+*.ilk
+*.iobj
+*.ipdb
+CSProTool.dll
+
+## Injecteur tiers
+Xenos-master/
+
+## Logs / temp / scripts one-shot
+*.log
+csprotool_log.txt
+tools/_patch_*.py
+tools/_probe_*.py
+tools/_fix_*.py
+tools/_cm_*.txt
+tools/_rb_*.txt
+tools/_sch_*.txt
+tools/scan_trace*.py
+
+## IDE / OS
+.idea/
+.vscode/
+*.swp
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+## Secrets
+.env
+.env.*
+*.pem
+credentials.json
+**/secrets/
